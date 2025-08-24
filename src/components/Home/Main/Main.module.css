@@ -13,10 +13,10 @@
   border: solid 1px red;
   padding: 5px;
   width: 30%;
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 .dataArea dl:hover {
-  opacity: 0.8;
+  /* opacity: 0.8; */
   box-shadow: 3px 3px red;
   translate: -3px -3px;
 }
@@ -25,4 +25,9 @@
 }
 .dataArea dd {
   margin: 0;
+}
+.dataArea span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

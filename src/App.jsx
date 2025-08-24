@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { useEffect } from "react";
 import { createClient } from "microcms-js-sdk";
 import { useState } from "react";
+import Layout from "./layouts/Layout";
 
 const client = createClient({
   serviceDomain: import.meta.env.VITE_MICROCMS_SERVICE_DOMAIN,
@@ -28,7 +29,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home data={data} />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home data={data} />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
