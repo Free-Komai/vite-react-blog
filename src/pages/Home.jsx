@@ -1,3 +1,4 @@
-export default function Home() {
-  return <>Hello!!</>;
+export default function Home({ data }) {
+  // console.log(data);
+  return <>{data[0].title}</>;
 }
