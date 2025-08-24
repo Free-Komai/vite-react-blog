@@ -16,6 +16,7 @@ export default function P5() {
   const sketch = (p) => {
     const w = window.innerWidth;
     const h = window.innerHeight / 3;
+    let counter = 0;
 
     function _random(x, a) {
       return Math.random() * x + a;
@@ -48,6 +49,7 @@ export default function P5() {
       }
       draw() {
         let b = this.obj;
+
         p.fill(255, 255, 255);
         p.circle(b.x, b.y, b.r * 2);
         this.move();
@@ -56,17 +58,17 @@ export default function P5() {
 
     let block = {
       form: [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       ],
       para: [],
-      pad: 2,
+      pad: 1.5,
       //   h_size: 20,
     };
 
@@ -115,6 +117,7 @@ export default function P5() {
         ) {
           ball.vec_y = -ball.vec_y;
           this.obj.form[bp.bh][bp.bw] = 0;
+          counter++;
         } else if (
           ball.x >= bp.x - ball.r &&
           ball.x <= bp.x + bp.w + ball.r &&
@@ -123,6 +126,7 @@ export default function P5() {
         ) {
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
+          counter++;
         } else if (
           ball.vec_x > 0 &&
           ball.vec_y > 0 &&
@@ -131,6 +135,7 @@ export default function P5() {
           ball.vec_y = -ball.vec_y;
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
+          counter++;
         } else if (
           ball.vec_x < 0 &&
           ball.vec_y > 0 &&
@@ -139,6 +144,7 @@ export default function P5() {
           ball.vec_y = -ball.vec_y;
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
+          counter++;
         } else if (
           ball.vec_x > 0 &&
           ball.vec_y < 0 &&
@@ -147,6 +153,7 @@ export default function P5() {
           ball.vec_y = -ball.vec_y;
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
+          counter++;
         } else if (
           ball.vec_x < 0 &&
           ball.vec_y < 0 &&
@@ -156,6 +163,7 @@ export default function P5() {
           ball.vec_y = -ball.vec_y;
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
+          counter++;
         }
       }
     }
@@ -215,11 +223,13 @@ export default function P5() {
     };
 
     p.draw = () => {
-      p.background(0);
-      p.textSize();
+      // p.textSize();
       //   p.text("ポートフォリオBLOG", 0, 0, 30, 30);
-      new Block(block).draw();
-      new Ball(ball).draw();
+      p.background(0);
+      if (counter < 48) {
+        new Block(block).draw();
+        new Ball(ball).draw();
+      }
       //   new Ber(ber).draw();
     };
   };
