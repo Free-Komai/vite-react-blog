@@ -1,0 +1,28 @@
+.section {
+  border: solid 1px red;
+  margin: 0;
+}
+.dataArea {
+  display: flex;
+  gap: 5%;
+  justify-content: flex-start;
+  text-align: center;
+  cursor: pointer;
+}
+.dataArea dl {
+  border: solid 1px red;
+  padding: 5px;
+  width: 30%;
+  transition: all 0.5s;
+}
+.dataArea dl:hover {
+  opacity: 0.8;
+  box-shadow: 3px 3px red;
+  translate: -3px -3px;
+}
+.dataArea dt {
+  font-size: 1em;
+}
+.dataArea dd {
+  margin: 0;
+}
