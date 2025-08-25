@@ -5,10 +5,10 @@ export default function Main({ data }) {
   return (
     <section className="">
       <h1>Portfolio</h1>
-      <div className="flex gap-1">
+      <div className="flex gap-[3%]">
         {data.map((data, num) => (
-          <dl key={num} className="p-3 bg-green-600 mx-auto">
-            <div className="flex items-center justify-center">
+          <dl key={num} className="p-2 bg-green-600 mx-auto w-[30%]">
+            <div className="flex items-center">
               <HiDesktopComputer />
               <dt>{data.title}</dt>
             </div>
