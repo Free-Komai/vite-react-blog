@@ -3,7 +3,7 @@ import { HiDesktopComputer } from "react-icons/hi";
 
 export default function Main({ data }) {
   return (
-    <section className="">
+    <section className="border border-fuchsia-900 border-bold">
       <h1>Portfolio</h1>
       <div className="flex gap-[3%]">
         {data.map((data, num) => (

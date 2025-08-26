@@ -50,7 +50,7 @@ export default function P5() {
       draw() {
         let b = this.obj;
 
-        p.fill(255, 255, 255);
+        p.fill(88, 28, 135);
         p.circle(b.x, b.y, b.r * 2);
         this.move();
       }
@@ -83,7 +83,7 @@ export default function P5() {
       rect_block(x, y) {
         // let b = this.obj;
         p.noStroke();
-        p.fill(200, 200, 200);
+        p.fill(229, 229, 229);
         p.rect(x, y, this.w_size, this.h_size);
       }
       draw() {

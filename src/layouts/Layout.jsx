@@ -4,10 +4,10 @@ import Header from "../components/Header/Header";
 
 export default function Layout() {
   return (
-    <>
+    <div className="font-sans">
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
