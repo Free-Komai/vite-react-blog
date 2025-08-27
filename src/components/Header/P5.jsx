@@ -1,6 +1,9 @@
 import p5 from "p5";
 import { useEffect, useRef } from "react";
 
+let w = window.innerWidth;
+let h = window.innerHeight / 3;
+
 export default function P5() {
   const canvasRef = useRef(null);
   let p5Instance = useRef(null);
@@ -14,8 +17,6 @@ export default function P5() {
   }, []);
 
   const sketch = (p) => {
-    const w = window.innerWidth;
-    const h = window.innerHeight / 3;
     let counter = 0;
 
     function _random(x, a) {
@@ -26,9 +27,9 @@ export default function P5() {
     }
 
     let ball = {
-      r: 10,
-      x: 200,
-      y: 300,
+      r: 12,
+      x: 0,
+      y: h,
       v: 3,
       vec_x: 1,
       vec_y: -1,
@@ -50,7 +51,7 @@ export default function P5() {
       draw() {
         let b = this.obj;
 
-        p.fill(88, 28, 135);
+        p.fill(229, 229, 229);
         p.circle(b.x, b.y, b.r * 2);
         this.move();
       }
@@ -68,7 +69,7 @@ export default function P5() {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       ],
       para: [],
-      pad: 1.5,
+      pad: 3,
       //   h_size: 20,
     };
 
@@ -231,6 +232,11 @@ export default function P5() {
         new Ball(ball).draw();
       }
       //   new Ber(ber).draw();
+    };
+    p.windowResized = () => {
+      w = window.innerWidth;
+      h = window.innerHeight / 3;
+      p.resizeCanvas(w, h);
     };
   };
 
