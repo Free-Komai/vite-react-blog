@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home data={data} />} />
-          <Route path="/portforio" element={<Portforio data={data} />} />
+          <Route path="/portforio/:id" element={<Portforio data={data} />} />
         </Route>
       </Routes>
     </BrowserRouter>

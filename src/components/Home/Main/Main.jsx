@@ -13,7 +13,7 @@ export default function Main({ data }) {
               <HiDesktopComputer />
               <dt>{data.title}</dt>
             </div>
-            <Link to="/portforio">
+            <Link to={`/portforio/${num}`}>
               <img src={data.url} alt="testImage" />
             </Link>
             <dd>{data.description}</dd>
