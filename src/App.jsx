@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { createClient } from "microcms-js-sdk";
 import { useState } from "react";
 import Layout from "./layouts/Layout";
+import Portforio from "./pages/Portforio";
 
 const client = createClient({
   serviceDomain: import.meta.env.VITE_MICROCMS_SERVICE_DOMAIN,
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home data={data} />} />
+          <Route path="/portforio" element={<Portforio data={data} />} />
         </Route>
       </Routes>
     </BrowserRouter>
