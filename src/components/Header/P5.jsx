@@ -226,7 +226,7 @@ export default function P5() {
     p.draw = () => {
       // p.textSize();
       //   p.text("ポートフォリオBLOG", 0, 0, 30, 30);
-      p.background(0);
+      p.background(15);
       if (counter < 48) {
         new Block(block).draw();
         new Ball(ball).draw();

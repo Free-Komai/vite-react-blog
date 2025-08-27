@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 
 export default function Layout() {
   return (
-    <div className="font-sans">
+    <div className="font-sans text-gray-950">
       <Header />
       <Outlet />
       <Footer />
