@@ -2,7 +2,7 @@ import p5 from "p5";
 import { useEffect, useRef } from "react";
 
 let w = window.innerWidth;
-let h = window.innerHeight / 3;
+let h = window.innerHeight / 4;
 
 export default function P5() {
   const canvasRef = useRef(null);
@@ -51,7 +51,7 @@ export default function P5() {
       draw() {
         let b = this.obj;
 
-        p.fill(229, 229, 229);
+        p.fill(17, 24, 39);
         p.circle(b.x, b.y, b.r * 2);
         this.move();
       }
@@ -61,7 +61,6 @@ export default function P5() {
       form: [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
         [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
         [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
         [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
@@ -84,7 +83,7 @@ export default function P5() {
       rect_block(x, y) {
         // let b = this.obj;
         p.noStroke();
-        p.fill(229, 229, 229);
+        p.fill(17, 24, 39);
         p.rect(x, y, this.w_size, this.h_size);
       }
       draw() {
@@ -226,8 +225,8 @@ export default function P5() {
     p.draw = () => {
       // p.textSize();
       //   p.text("ポートフォリオBLOG", 0, 0, 30, 30);
-      p.background(15);
-      if (counter < 48) {
+      p.background(255);
+      if (counter < 36) {
         new Block(block).draw();
         new Ball(ball).draw();
       }
@@ -235,7 +234,7 @@ export default function P5() {
     };
     p.windowResized = () => {
       w = window.innerWidth;
-      h = window.innerHeight / 3;
+      h = window.innerHeight / 4;
       p.resizeCanvas(w, h);
     };
   };

@@ -1,6 +1,6 @@
 export default function Profile() {
   return (
-    <div className="container flex-row sm:flex p-2 m-auto items-center justify-center gap-2 mt-5">
+    <div className="container flex-row sm:flex p-2 m-auto items-center justify-center gap-2">
       <img
         src="src/assets/face.jpeg"
         alt="faceImage"
