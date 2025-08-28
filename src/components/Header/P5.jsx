@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 let w = window.innerWidth;
 let h = window.innerHeight / 4;
 
-export default function P5() {
+export default function P5({ setCounter }) {
   const canvasRef = useRef(null);
   let p5Instance = useRef(null);
   useEffect(() => {
@@ -14,17 +14,18 @@ export default function P5() {
         p5Instance.current.remove();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sketch = (p) => {
-    let counter = 0;
-
     function _random(x, a) {
       return Math.random() * x + a;
     }
     function _round(x, a) {
       return Math.round(_random(x, a));
     }
+
+    let blockCounter = 0;
 
     let ball = {
       r: 12,
@@ -117,7 +118,8 @@ export default function P5() {
         ) {
           ball.vec_y = -ball.vec_y;
           this.obj.form[bp.bh][bp.bw] = 0;
-          counter++;
+          setCounter((prev) => prev + 1);
+          blockCounter++;
         } else if (
           ball.x >= bp.x - ball.r &&
           ball.x <= bp.x + bp.w + ball.r &&
@@ -126,7 +128,8 @@ export default function P5() {
         ) {
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
-          counter++;
+          setCounter((prev) => prev + 1);
+          blockCounter++;
         } else if (
           ball.vec_x > 0 &&
           ball.vec_y > 0 &&
@@ -135,7 +138,8 @@ export default function P5() {
           ball.vec_y = -ball.vec_y;
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
-          counter++;
+          setCounter((prev) => prev + 1);
+          blockCounter++;
         } else if (
           ball.vec_x < 0 &&
           ball.vec_y > 0 &&
@@ -144,7 +148,8 @@ export default function P5() {
           ball.vec_y = -ball.vec_y;
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
-          counter++;
+          setCounter((prev) => prev + 1);
+          blockCounter++;
         } else if (
           ball.vec_x > 0 &&
           ball.vec_y < 0 &&
@@ -153,7 +158,8 @@ export default function P5() {
           ball.vec_y = -ball.vec_y;
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
-          counter++;
+          setCounter((prev) => prev + 1);
+          blockCounter++;
         } else if (
           ball.vec_x < 0 &&
           ball.vec_y < 0 &&
@@ -163,74 +169,22 @@ export default function P5() {
           ball.vec_y = -ball.vec_y;
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
-          counter++;
+          setCounter((prev) => prev + 1);
+          blockCounter++;
         }
       }
     }
-
-    // let ber = {
-    //   x: 200,
-    //   vec_x: 1,
-    // };
-
-    // class Ber {
-    //   constructor(obj) {
-    //     this.x = obj.x;
-    //     this.w = w / 5;
-    //     this.h = 10;
-    //     this.y = h - this.h;
-    //     this.v = 5;
-    //   }
-    //   ber_move() {
-    //     if (this.x > p.mouseX) {
-    //       ber.x -= this.v;
-    //       ber.vec_x = -1;
-    //     }
-    //     if (this.x + this.w < p.mouseX) {
-    //       ber.x += this.v;
-    //       ber.vec_x = 1;
-    //     }
-    //     if (this.x < 0) ber.x = 0;
-    //     if (this.x + this.w > w) ber.x = w - this.w;
-    //   }
-
-    //   ball_reflection() {
-    //     if (ball.y + ball.r >= h) {
-    //       ball.v = 0;
-    //     }
-    //     if (ball.x > this.x && ball.x < this.x + this.w) {
-    //       if (ball.y + ball.r > this.y) {
-    //         ball.vec_y *= -1;
-    //         if (ber.vec_x > 0) {
-    //           ball.vec_x = 1;
-    //         } else {
-    //           ball.vec_x = -1;
-    //         }
-    //       }
-    //     }
-    //   }
-
-    //   draw() {
-    //     p.fill(255, 0, 0);
-    //     p.rect(this.x, this.y, w / 5, 5);
-    //     this.ber_move();
-    //     this.ball_reflection();
-    //   }
-    // }
 
     p.setup = () => {
       p.createCanvas(w, h);
     };
 
     p.draw = () => {
-      // p.textSize();
-      //   p.text("ポートフォリオBLOG", 0, 0, 30, 30);
       p.background(255);
-      if (counter < 36) {
+      if (blockCounter < 36) {
         new Block(block).draw();
         new Ball(ball).draw();
       }
-      //   new Ber(ber).draw();
     };
     p.windowResized = () => {
       w = window.innerWidth;

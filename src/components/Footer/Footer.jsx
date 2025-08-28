@@ -1,9 +1,7 @@
-import styles from "./Footer.module.css";
-
 export default function Footer() {
   return (
-    <section className={styles.section}>
-      <h1>Footer</h1>
+    <section className="conteiner text-center">
+      <h1>©Free-Komai</h1>
     </section>
   );
 }
