@@ -12,7 +12,7 @@ export default function Header() {
   }, [counter]);
 
   return (
-    <section className="bg-clip-padding border-r-2 border-b-2 border-transparent relative h-50">
+    <section className="bg-clip-padding border-transparent relative h-50">
       <Link to="/">
         <Icons className="z-3" />
         {flag ? (
@@ -28,7 +28,7 @@ export default function Header() {
           </h1>
         )}
       </Link>
-      <P5 setCounter={setCounter} />
+      <P5 setCounter={setCounter} className="m-auto" />
     </section>
   );
 }
