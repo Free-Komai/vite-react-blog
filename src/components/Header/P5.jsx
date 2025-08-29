@@ -31,7 +31,7 @@ export default function P5({ setCounter }) {
       r: 12,
       x: 0,
       y: h,
-      v: 3,
+      v: 4,
       vec_x: 1,
       vec_y: -1,
     };
@@ -184,6 +184,14 @@ export default function P5({ setCounter }) {
       if (blockCounter < 36) {
         new Block(block).draw();
         new Ball(ball).draw();
+      }
+      if (blockCounter === 36) {
+        ball.r -= 0.2;
+        new Ball(ball).draw();
+      }
+      if (ball.r < 0) {
+        blockCounter++;
+        setCounter((prev) => prev + 1);
       }
     };
     p.windowResized = () => {

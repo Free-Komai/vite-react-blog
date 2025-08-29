@@ -8,7 +8,7 @@ export default function Header() {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    if (counter === 36) setFrag((prev) => !prev);
+    if (counter === 37) setFrag((prev) => !prev);
   }, [counter]);
 
   return (
