@@ -1,5 +1,5 @@
-import Main from "../components/Home/Main/Main";
-import Profile from "../components/Home/Profile/Profile";
+import Main from "../components/Home/Portforio";
+import Profile from "../components/Home/Profile";
 
 export default function Home({ data }) {
   // console.log(data);

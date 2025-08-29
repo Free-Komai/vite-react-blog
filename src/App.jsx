@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { createClient } from "microcms-js-sdk";
 import { useState } from "react";
 import Layout from "./layouts/Layout";
-import Portforio from "./pages/Portforio";
+import Contents from "./pages/Contents";
 
 const client = createClient({
   serviceDomain: import.meta.env.VITE_MICROCMS_SERVICE_DOMAIN,
@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const x = await client.get({ endpoint: "blog" });
+        const x = await client.get({ endpoint: "portforio" });
         setData(x.contents);
       } catch (error) {
         console.error("error fetching :", error);
@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home data={data} />} />
-          <Route path="/portforio/:id" element={<Portforio data={data} />} />
+          <Route path="/contents/:id" element={<Contents data={data} />} />
         </Route>
       </Routes>
     </BrowserRouter>

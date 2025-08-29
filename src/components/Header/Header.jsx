@@ -12,7 +12,7 @@ export default function Header() {
   }, [counter]);
 
   return (
-    <section className="bg-clip-padding border-transparent relative h-50">
+    <section className="bg-clip-padding border-transparent relative h-[1/4vh + 1/15vw]">
       <Link to="/">
         <Icons className="z-3" />
         {flag ? (

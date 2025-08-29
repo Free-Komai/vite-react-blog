@@ -2,7 +2,7 @@ import p5 from "p5";
 import { useEffect, useRef } from "react";
 
 let w = (window.innerWidth * 95) / 100;
-let h = window.innerHeight / 4;
+let h = window.innerHeight / 4 + window.innerWidth / 15;
 
 export default function P5({ setCounter }) {
   const canvasRef = useRef(null);
@@ -188,7 +188,7 @@ export default function P5({ setCounter }) {
     };
     p.windowResized = () => {
       w = (window.innerWidth * 95) / 100;
-      h = window.innerHeight / 4;
+      h = window.innerHeight / 4 + window.innerWidth / 15;
       p.resizeCanvas(w, h);
     };
   };

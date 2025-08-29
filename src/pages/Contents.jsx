@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-export default function Portforio({ data }) {
+export default function Contents({ data }) {
   const { id } = useParams();
   return (
     <div>
