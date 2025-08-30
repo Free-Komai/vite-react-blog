@@ -5,7 +5,7 @@ export default function Contents({ data }) {
   return (
     <div>
       <h1>portforioPage</h1>
-      <p>{data[id].title}</p>
+      <p>{data.portforio[id].title}</p>
     </div>
   );
 }

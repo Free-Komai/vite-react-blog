@@ -18,13 +18,13 @@ export default function Header() {
         {flag ? (
           <>
             <h1 className="absolute z-2 top-1/2 left-1/2  w-8/10 h-[7vw] text-[5vw] -translate-1/2 text-center font-bold bg-white">
-              Webコンテンツを紹介する
+              Web制作ポートフォリオ
             </h1>
             <div className="absolute inset-0 z-1 w-6/10 h-[8vw] -bottom-2 m-auto bg-gradient-to-br from-white via-white to-gray-950 rounded-4xl"></div>
           </>
         ) : (
           <h1 className="absolute top-1/2 left-1/2  w-8/10 h-[7vw] text-[5vw] -translate-1/2 text-center font-bold">
-            Webコンテンツを紹介する
+            Web制作ポートフォリオ
           </h1>
         )}
       </Link>

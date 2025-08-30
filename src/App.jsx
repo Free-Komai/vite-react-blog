@@ -23,9 +23,15 @@ function App() {
       try {
         const getPortforioData = await client.get({
           endpoint: "portforio",
+          queries: {
+            limit: 20,
+          },
         });
         const getSkillData = await client.get({
           endpoint: "skill",
+          queries: {
+            limit: 20,
+          },
         });
         setData({
           ...data,
