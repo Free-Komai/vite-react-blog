@@ -13,18 +13,31 @@ const client = createClient({
 });
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({
+    portforio: [],
+    skill: [],
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const x = await client.get({ endpoint: "portforio" });
-        setData(x.contents);
+        const getPortforioData = await client.get({
+          endpoint: "portforio",
+        });
+        const getSkillData = await client.get({
+          endpoint: "skill",
+        });
+        setData({
+          ...data,
+          portforio: getPortforioData.contents,
+          skill: getSkillData.contents,
+        });
       } catch (error) {
         console.error("error fetching :", error);
       }
     };
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

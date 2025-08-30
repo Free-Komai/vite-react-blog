@@ -1,12 +1,13 @@
-import Main from "../components/Home/Portforio";
+import Portforio from "../components/Home/Portforio";
 import Profile from "../components/Home/Profile";
+import Skill from "../components/Home/Skill";
 
 export default function Home({ data }) {
-  // console.log(data);
   return (
     <div>
       <Profile />
-      <Main data={data} />
+      <Portforio data={data} />
+      <Skill data={data} />
     </div>
   );
 }
