@@ -25,8 +25,6 @@ export default function P5({ setCounter }) {
       return Math.round(_random(x, a));
     }
 
-    let blockCounter = 0;
-
     let ball = {
       r: 12,
       x: 0,
@@ -70,8 +68,15 @@ export default function P5({ setCounter }) {
       ],
       para: [],
       pad: 3,
-      //   h_size: 20,
     };
+
+    let blockCounter = 0;
+    for (let i = 0; i < block.form.length; i++) {
+      for (let j = 0; j < block.form[0].length; j++) {
+        if (block.form[i][j] === 1) blockCounter++;
+        console.log(blockCounter);
+      }
+    }
 
     class Block {
       constructor(obj) {
@@ -119,7 +124,7 @@ export default function P5({ setCounter }) {
           ball.vec_y = -ball.vec_y;
           this.obj.form[bp.bh][bp.bw] = 0;
           setCounter((prev) => prev + 1);
-          blockCounter++;
+          blockCounter--;
         } else if (
           ball.x >= bp.x - ball.r &&
           ball.x <= bp.x + bp.w + ball.r &&
@@ -129,7 +134,7 @@ export default function P5({ setCounter }) {
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
           setCounter((prev) => prev + 1);
-          blockCounter++;
+          blockCounter--;
         } else if (
           ball.vec_x > 0 &&
           ball.vec_y > 0 &&
@@ -139,7 +144,7 @@ export default function P5({ setCounter }) {
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
           setCounter((prev) => prev + 1);
-          blockCounter++;
+          blockCounter--;
         } else if (
           ball.vec_x < 0 &&
           ball.vec_y > 0 &&
@@ -149,7 +154,7 @@ export default function P5({ setCounter }) {
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
           setCounter((prev) => prev + 1);
-          blockCounter++;
+          blockCounter--;
         } else if (
           ball.vec_x > 0 &&
           ball.vec_y < 0 &&
@@ -159,7 +164,7 @@ export default function P5({ setCounter }) {
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
           setCounter((prev) => prev + 1);
-          blockCounter++;
+          blockCounter--;
         } else if (
           ball.vec_x < 0 &&
           ball.vec_y < 0 &&
@@ -170,7 +175,7 @@ export default function P5({ setCounter }) {
           ball.vec_x = -ball.vec_x;
           this.obj.form[bp.bh][bp.bw] = 0;
           setCounter((prev) => prev + 1);
-          blockCounter++;
+          blockCounter--;
         }
       }
     }
@@ -181,16 +186,16 @@ export default function P5({ setCounter }) {
 
     p.draw = () => {
       p.background(255);
-      if (blockCounter < 36) {
+      if (blockCounter > 0) {
         new Block(block).draw();
         new Ball(ball).draw();
       }
-      if (blockCounter === 36) {
-        ball.r -= 0.2;
+      if (blockCounter === 0) {
+        ball.r -= 0.5;
         new Ball(ball).draw();
       }
       if (ball.r < 0) {
-        blockCounter++;
+        blockCounter--;
         setCounter((prev) => prev + 1);
       }
     };

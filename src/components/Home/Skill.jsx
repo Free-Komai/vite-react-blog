@@ -1,7 +1,6 @@
 import { HiDesktopComputer } from "react-icons/hi";
 
 export default function Skill({ data }) {
-  console.log(data);
   return (
     <section className="container m-auto mt-10">
       <h1 className="text-2xl font-bold p-1.5  text-white bg-gradient-to-l from-white via-white to-gray-900">
