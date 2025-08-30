@@ -4,8 +4,10 @@ export default function Contents({ data }) {
   const { id } = useParams();
   return (
     <div>
-      <h1>portforioPage</h1>
-      <p>{data.portforio[id].title}</p>
+      <h1>{data.portforio[id].title}</h1>
+      <div>{data.portforio[id].description}</div>
+      <img src={data.portforio[id].url} alt="dataImage" />
+      <div>{data.portforio[id].content}</div>
     </div>
   );
 }
