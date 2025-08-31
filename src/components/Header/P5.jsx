@@ -74,7 +74,6 @@ export default function P5({ setCounter }) {
     for (let i = 0; i < block.form.length; i++) {
       for (let j = 0; j < block.form[0].length; j++) {
         if (block.form[i][j] === 1) blockCounter++;
-        console.log(blockCounter);
       }
     }
 

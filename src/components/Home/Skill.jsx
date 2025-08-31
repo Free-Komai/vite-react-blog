@@ -1,11 +1,11 @@
-export default function Skill({ data }) {
+export default function Skill({ skillData }) {
   return (
     <section className="container m-auto mt-10">
       <h1 className="text-2xl font-bold p-1.5  text-white bg-gradient-to-l from-white via-white to-gray-900">
         Skill
       </h1>
       <div className="flex gap-[5%] flex-wrap">
-        {data.skill.map((data, num) => (
+        {skillData.map((data, num) => (
           <dl key={num} className="w-30 p-3 ml-2">
             <div className="flex items-center">
               <dt className="font-bold">{data.name}</dt>

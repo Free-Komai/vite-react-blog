@@ -1,60 +1,36 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import { useEffect } from "react";
-import { createClient } from "microcms-js-sdk";
-import { useState } from "react";
 import Layout from "./layouts/Layout";
 import Contents from "./pages/Contents";
-
-const client = createClient({
-  serviceDomain: import.meta.env.VITE_MICROCMS_SERVICE_DOMAIN,
-  apiKey: import.meta.env.VITE_MICROCMS_API_KEY,
-});
+import { useEffect, useState } from "react";
+import { getPortforioData, getSkillData } from "./libs/microcms";
 
 function App() {
-  const [data, setData] = useState({
-    portforio: [],
-    skill: [],
-  });
+  const [portforioData, setPortforioData] = useState([]);
+  const [skillData, setSkillData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const getPortforioData = await client.get({
-          endpoint: "portforio",
-          queries: {
-            limit: 20,
-          },
-        });
-        const getSkillData = await client.get({
-          endpoint: "skill",
-          queries: {
-            limit: 20,
-          },
-        });
-        setData({
-          ...data,
-          portforio: getPortforioData.contents,
-          skill: getSkillData.contents,
-        });
-      } catch (error) {
-        console.error("error fetching :", error);
-      }
+      setPortforioData(await getPortforioData());
+      setSkillData(await getSkillData());
     };
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home data={data} />} />
-          <Route path="/contents/:id" element={<Contents data={data} />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route
+          index
+          element={<Home portforioData={portforioData} skillData={skillData} />}
+        />
+        <Route
+          path="/contents/:id"
+          element={<Contents portforioData={portforioData} />}
+        />
+      </Route>
+    </Routes>
   );
 }
 
