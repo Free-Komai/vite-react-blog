@@ -6,7 +6,7 @@ export default function Skill({ skillData }) {
       <h1 className="text-2xl font-bold p-1.5  text-white bg-gradient-to-l from-white via-white to-gray-900">
         Skill
       </h1>
-      <div className="flex gap-[5%] flex-wrap">
+      <div className="flex flex-wrap gap-[8%] justify-center">
         {skillData.map((data, num) => (
           <motion.dl
             key={num}
