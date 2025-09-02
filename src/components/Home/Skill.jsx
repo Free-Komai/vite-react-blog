@@ -14,7 +14,7 @@ export default function Skill({ skillData }) {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{
-              delay: num * 0.3,
+              delay: num * 0.2,
               type: "spring",
             }}
             className="w-30 p-3 ml-2"
