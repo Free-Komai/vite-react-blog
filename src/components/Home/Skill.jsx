@@ -3,9 +3,16 @@ import { motion } from "motion/react";
 export default function Skill({ skillData }) {
   return (
     <section className="container m-auto mt-10">
-      <h1 className="text-2xl font-bold p-1.5  text-white bg-gradient-to-l from-white via-white to-gray-900">
-        Skill
-      </h1>
+      <h1 className="text-2xl font-bold p-1.5">Skill</h1>
+      <motion.div
+        className="bg-amber-400 w-[100%] h-1 bg-gradient-to-r from-amber-400 to-amber-50"
+        initial={{ x: "-90vw" }}
+        whileInView={{ x: 0 }}
+        // viewport={{ once: 1 }}
+        transition={{
+          duration: 1,
+        }}
+      />
       <div className="flex flex-wrap gap-[8%] justify-center">
         {skillData.map((data, num) => (
           <motion.dl
@@ -14,7 +21,7 @@ export default function Skill({ skillData }) {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{
-              delay: num * 0.2,
+              delay: num * 0.1,
               type: "spring",
             }}
             className="w-30 p-3 ml-2"
