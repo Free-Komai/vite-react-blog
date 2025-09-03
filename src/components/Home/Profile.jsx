@@ -6,7 +6,6 @@ export default function Profile({ profileData }) {
         alt="faceImage"
         className="sm:w-1/3 w-2/3 max-w-80 m-auto"
       />
-
       <div className="sm:w-2/3 w-full m-auto leading-8 pr-1 pb-1 bg-clip-padding border-r-2 border-b-2 border-transparent relative">
         <div className="bg-white p-5">
           <h2 className="text-2xl font-bold mb-2">-プロフィール-</h2>

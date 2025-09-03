@@ -7,11 +7,20 @@ export default function Contents({ portforioData }) {
   return (
     <>
       {portforioData[id] && (
-        <div>
-          <h1>{portforioData[id].title}</h1>
-          <div>{portforioData[id].description}</div>
-          <img src={portforioData[id].url} alt="dataImage" />
-          <div>{portforioData[id].content}</div>
+        <div className="container m-auto p-4">
+          <h1 className="text-2xl font-bold mb-2">{portforioData[id].title}</h1>
+          <div className="p-1.5">{portforioData[id].description}</div>
+          <img
+            src={portforioData[id].url}
+            alt="dataImage"
+            className="w-[100%]"
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: portforioData[id].content,
+            }}
+            className="wrap-anywhere p-2"
+          />
         </div>
       )}
     </>
