@@ -4,16 +4,22 @@ import Home from "./pages/Home";
 import Layout from "./layouts/Layout";
 import Contents from "./pages/Contents";
 import { useEffect, useState } from "react";
-import { getPortforioData, getSkillData } from "./libs/microcms";
+import {
+  getPortforioData,
+  getProfileData,
+  getSkillData,
+} from "./libs/microcms";
 
 function App() {
   const [portforioData, setPortforioData] = useState([]);
   const [skillData, setSkillData] = useState([]);
+  const [profileData, setProfileData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       setPortforioData(await getPortforioData());
       setSkillData(await getSkillData());
+      setProfileData(await getProfileData());
     };
     fetchData();
   }, []);
@@ -23,7 +29,13 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route
           index
-          element={<Home portforioData={portforioData} skillData={skillData} />}
+          element={
+            <Home
+              portforioData={portforioData}
+              skillData={skillData}
+              profileData={profileData}
+            />
+          }
         />
         <Route
           path="/contents/:id"
