@@ -9,21 +9,19 @@ import {
   getProfileData,
   getSkillData,
 } from "./libs/microcms";
-
 function App() {
   const [portforioData, setPortforioData] = useState([]);
   const [skillData, setSkillData] = useState([]);
-  const [profileData, setProfileData] = useState([]);
+  const [profileData, setProfileData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
+      setProfileData(await getProfileData());
       setPortforioData(await getPortforioData());
       setSkillData(await getSkillData());
-      setProfileData(await getProfileData());
     };
     fetchData();
   }, []);
-
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -32,8 +30,8 @@ function App() {
           element={
             <Home
               portforioData={portforioData}
-              skillData={skillData}
               profileData={profileData}
+              skillData={skillData}
             />
           }
         />

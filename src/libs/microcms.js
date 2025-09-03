@@ -28,9 +28,6 @@ export const getSkillData = async () => {
 export const getProfileData = async () => {
   const data = await client.get({
     endpoint: "profile",
-    queries: {
-      limit: 1,
-    },
   });
-  return data.contents;
+  return data.contents[0];
 };

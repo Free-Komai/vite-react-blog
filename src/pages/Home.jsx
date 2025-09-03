@@ -1,13 +1,13 @@
-import Portforio from "../components/Home/Portforio";
 import Profile from "../components/Home/Profile";
+import Portforio from "../components/Home/Portforio";
 import Skill from "../components/Home/Skill";
 
-export default function Home({ portforioData, skillData, profileData }) {
+export default function Home({ profileData, portforioData, skillData }) {
   return (
     <div>
-      <Profile profileData={profileData} />
-      <Portforio portforioData={portforioData} />
-      <Skill skillData={skillData} />
+      {profileData && <Profile profileData={profileData} />}
+      {portforioData && <Portforio portforioData={portforioData} />}
+      {skillData && <Skill skillData={skillData} />}
     </div>
   );
 }
