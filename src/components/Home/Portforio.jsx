@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import { HiDesktopComputer } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import Sub from "./sub";
+import Sub from "./Sub";
 
 export default function Portforio({ portforioData }) {
   return (
