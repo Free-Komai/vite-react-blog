@@ -16,7 +16,7 @@
 ・P5.js  
 ・tailwindCSS  
 ・microCMS 　　
-・Vercel（https://vite-react-blog-xi.vercel.app/）
+・Vercel https://vite-react-blog-xi.vercel.app/
 
 # 詳細
 
