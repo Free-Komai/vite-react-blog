@@ -1,18 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import Sub from "./sub";
+
 export default function Skill({ skillData }) {
   return (
     <section className="container m-auto mt-10">
-      <h1 className="text-2xl font-bold p-1.5">Skill</h1>
-      <motion.div
-        className="bg-amber-400 w-[100%] h-1 bg-gradient-to-r from-amber-400 to-amber-50"
-        initial={{ x: "-90vw" }}
-        whileInView={{ x: 0 }}
-        // viewport={{ once: 1 }}
-        transition={{
-          duration: 1,
-        }}
-      />
+      <Sub title="Skill" />
       <div className="flex flex-wrap gap-[8%] justify-center">
         {skillData.map((data, num) => (
           <motion.dl
