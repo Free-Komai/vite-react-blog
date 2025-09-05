@@ -8,12 +8,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx">
-      const path = sessionStorage.getItem("path")
-      if (path && path === "*/contents/*") {
-        sessionStorage.removeItem('path')
-        window.history.replaceState(null, null, "./contents/1")
-      }
-    </script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
