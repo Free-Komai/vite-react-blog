@@ -39,6 +39,16 @@ function App() {
           path="/contents/:id"
           element={<Contents portforioData={portforioData} />}
         />
+        <Route
+          path="*"
+          element={
+            <Home
+              portforioData={portforioData}
+              profileData={profileData}
+              skillData={skillData}
+            />
+          }
+        />
       </Route>
     </Routes>
   );
