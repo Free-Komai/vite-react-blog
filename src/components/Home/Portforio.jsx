@@ -1,7 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import { motion } from "motion/react";
 import { HiDesktopComputer } from "react-icons/hi";
-import { Link } from "react-router-dom";
 import Sub from "./Sub";
 
 export default function Portforio({ portforioData }) {
@@ -15,9 +12,7 @@ export default function Portforio({ portforioData }) {
               <HiDesktopComputer />
               <dt>{data.title}</dt>
             </div>
-            <Link to={`/contents/${num}`}>
-              <img src={data.url} alt="testImage" />
-            </Link>
+            <img src={data.url} alt="testImage" />
           </dl>
         ))}
       </div>
